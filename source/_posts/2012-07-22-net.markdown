@@ -1,0 +1,26 @@
+---
+layout: post
+title: "HTTPの確認の仕方とか"
+date: 2012-07-22 05:37
+comments: true
+categories:
+---
+
+[とあるアプリの開発運用(トラブルシュート)](http://www.slideshare.net/takafumionaka/ss-5852561)
+に書いてあるんだけど、net-htttp-spyとtcpflowが使いやすかった。
+
+## net-htttp-spy
+
+{% codeblock lang:ruby %}
+require 'net-http-spy'
+
+Net::HTTP.http_logger_options = {:body => true} #bodyだけ表示する場合
+
+Net::HTTP.http_logger_options = {:verbose => true} #全部表示する場合
+{% endcodeblock %}
+
+## tcpflow
+
+{% codeblock lang:sh %}
+sudo tcpflow -c port 3000 -i eth0
+{% endcodeblock %}
