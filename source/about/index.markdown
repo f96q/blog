@@ -13,6 +13,11 @@ footer: true
 ## Profile
 I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010.
 
+## Blogs
+
++ [がむしゃらにコードを書き続けるブログ](http://d.hatena.ne.jp/f96q)
++ [Kray Blog](http://kray.jp/author/danny)
+
 ## Programming Languages
 
 + Ruby
