@@ -34,3 +34,9 @@ THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 #### If you want to be awesome.
 - Proudly display the 'Powered by Octopress' credit in the footer.
 - Add your site to the Wiki so we can watch the community grow.
+
+#### setup
+rake setup_github_pages
+git@github.com:f96q/f96q.github.com.git
+
+rake new_post\['test'\]
