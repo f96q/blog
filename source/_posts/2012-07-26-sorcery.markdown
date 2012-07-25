@@ -1,0 +1,66 @@
+---
+layout: post
+title: "sorceryでアクティベーション前のユーザー作成をされた時に管理者にもメールを送信する"
+date: 2012-07-26 06:38
+comments: true
+categories:
+---
+
+{% codeblock lib/sorcery/mail_admin.rb %}
+module Sorcery
+  module Model
+    module Submodules
+      module UserActivation
+        def self.included_with_admin(base)
+          included_without_admin base
+          base.sorcery_config.class_eval do
+            attr_accessor :activation_needed_email_admin_method_name
+          end
+          base.sorcery_config.instance_eval do
+            @defaults.merge!(:@activation_needed_email_admin_method_name => :activation_needed_email_admin)
+            reset!
+          end
+        end
+        class << self
+          alias_method_chain :included, :admin
+        end
+        module InstanceMethods
+          def send_activation_needed_email_with_admin!
+            send_activation_needed_email_without_admin!
+            generic_send_email(:activation_needed_email_admin_method_name, :user_activation_mailer) unless sorcery_config.activation_needed_email_admin_method_name.nil? or sorcery_config.activation_mailer_disabled == true
+          end
+          alias_method_chain :send_activation_needed_email!, :admin
+        end
+      end
+    end
+  end
+end
+{% endcodeblock %}
+
+先頭に以下を追加
+{% codeblock config/initializers/sorcery.rb %}
+require 'sorcery/mail_admin'
+{% endcodeblock %}
+
+UserMailerを生成
+{% codeblock lang:sh %}
+rails generate mailer UserMailer
+{% endcodeblock %}
+
+{% codeblock app/mailers/user_mailer.rb %}
+class UserMailer < ActionMailer::Base
+  def activation_needed_email(user)
+    mail :to => user.email, :subject => 'subject'
+  end
+
+  def activation_needed_email_admin(user)
+    mail :to => 'admin@example.com', :subject => 'subject'
+  end
+end
+{% endcodeblock %}
+
+app/views/user_mailer
+に以下のファイルを追加してメールの本文を書く
+
++ activation_needed_email.text.erb
++ activation_needed_email_admin.text.erb
