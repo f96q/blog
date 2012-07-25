@@ -14,16 +14,24 @@ footer: true
 I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010.
 
 ## Programming Languages
-Ruby
 
-JavaScript
-
-CoffeeScript
-
-Objective-C
++ Ruby
++ JavaScript
++ CoffeeScript
++ Objective-C
 
 ## Frameworks
-Ruby on Rails
+
++ Ruby on Rails
+
+## Environment
+
++ MacBook Pro 13-inch
++ MacBook Air 13-inch
++ Emacs
++ zsh
++ screen
++ Happy Hacking Keyboard Professional
 
 ## Contacts
 Twitter: [@f96q](https://twitter.com/#!/f96q)
