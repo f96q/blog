@@ -11,12 +11,18 @@ categories:
 
 ## net-htttp-spy
 
+bodyだけ表示する場合
 {% codeblock lang:ruby %}
 require 'net-http-spy'
 
-Net::HTTP.http_logger_options = {:body => true} #bodyだけ表示する場合
+Net::HTTP.http_logger_options = {:body => true}
+{% endcodeblock %}
 
-Net::HTTP.http_logger_options = {:verbose => true} #全部表示する場合
+全部表示する場合
+{% codeblock lang:ruby %}
+require 'net-http-spy'
+
+Net::HTTP.http_logger_options = {:verbose => true}
 {% endcodeblock %}
 
 ## tcpflow
