@@ -1,0 +1,15 @@
+---
+layout: post
+title: "バリデーションのエラーメッセージをI18nで指定する"
+date: 2012-08-03 06:57
+comments: true
+categories:
+---
+
+{% codeblock lang:ruby %}
+class Test < ActiveRecord::Base
+  validates :precence => {:message => Proc.new { I18n.t('errors.messages.inclusion') } }
+end
+{% endcodeblock %}
+
+Procで指定しないと最初に翻訳されてから、別なロケールにした場合の翻訳が最初に翻訳された結果から変わらなかった。
