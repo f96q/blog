@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Cent OSでMongDBのロックファイルの場所"
+date: 2012-08-04 21:41
+comments: true
+categories:
+---
+
+{% codeblock lang:sh %}
+/var/lib/mongodb/mongod.lock
+{% endcodeblock %}
+
+なんか毎回場所を忘れる。
