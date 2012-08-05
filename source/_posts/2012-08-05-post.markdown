@@ -6,7 +6,7 @@ comments: true
 categories:
 ---
 
-![](images/uploads/ookami.jpg")
+![](/images/uploads/ookami.jpg")
 
 ネタバレ的なことは書かないので、個人的に思ったことだけ。
 
