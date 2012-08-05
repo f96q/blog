@@ -1,0 +1,15 @@
+---
+layout: post
+title: "I18nの翻訳を取得する方法"
+date: 2012-08-06 08:25
+comments: true
+categories:
+---
+
+前に調べておいて書こうと思ってたので書いた。
+
+{% codeblock lang:ruby %}
+I18n.locale = :ja
+I18n.backend.send(:init_translations)
+I18n.backend.instance_variable_get(:@translations)[I18n.locale]
+{% endcodeblock %}
