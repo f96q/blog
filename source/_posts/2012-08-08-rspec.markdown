@@ -1,0 +1,49 @@
+---
+layout: post
+title: "RSpecのshared contextが便利だった"
+date: 2012-08-08 06:01
+comments: true
+categories:
+---
+
+{% codeblock lang:ruby %}
+shared_context "権限Aでログイン" do
+end
+
+shared_context "権限Bでログイン" do
+end
+
+shared_context "権限Cでログイン" do
+end
+
+shared_examples_for "操作Aができる" do
+  it "操作Aができる" do
+  end
+end
+
+shared_examples_for "操作Aができない" do
+  it "操作Aができない" do
+  end
+end
+
+describe "Configのダウンロード" do
+  context "権限Aでログインしてるとき" do
+   include_context "権限Aでログイン"
+   it_behaves_like "操作Aができる"
+  end
+
+  context "権限Bでログインしてるとき" do
+   include_context "権限Bでログイン"
+   it_behaves_like "操作Aができる"
+  end
+
+  context "権限Cでログインしてるとき" do
+   include_context "権限Cでログイン"
+   it_behaves_like "操作Aができない"
+  end
+end
+{% endcodeblock %}
+
+複数の権限を持ってるユーザーがいて、ユーザーごとにできることとできないことをテストしないといけない場合にテスト内容を使い回せて便利だった。
+
+あと別のSpecファイルにすでにあるshared_contextとかshared_examples_forの同じ名前を付けるとエラーになるので注意。
