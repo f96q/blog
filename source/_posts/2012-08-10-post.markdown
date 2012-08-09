@@ -1,0 +1,12 @@
+---
+layout: post
+title: "Githubではなぜ人が辞めないのか？"
+date: 2012-08-10 06:19
+comments: true
+categories:
+---
+[Githubではなぜ人が辞めないのか？](http://www.ideaxidea.com/archives/2012/08/github_slides.html)
+
+やめた人がいないってかなりすごいことじゃないですかね。
+
+これだけ個人に対して裁量があると、自己管理できる人じゃないとやって行くのが大変なんじゃないかなと思いました。
