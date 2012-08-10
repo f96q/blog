@@ -1,0 +1,14 @@
+---
+layout: post
+title: "Rspecでテストを表示する"
+date: 2012-08-11 08:26
+comments: true
+categories:
+---
+今までRspecでテスト終わるまでどのテストが落ちてるか知らなかったんだけど、
+.rspecに以下を書いておくとどのテストが通ったとか落ちたとか実行中に常に流れて表示されるということを
+[@ttakuru88](https://twitter.com/ttakuru88)の人から教えてもらって大変便利だった。
+
+{% codeblock .rspec %}
+-f d
+{% endcodeblock %}
