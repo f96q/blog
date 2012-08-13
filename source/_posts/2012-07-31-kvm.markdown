@@ -45,7 +45,7 @@ bridge_stp off
 
 ## ディスクイメージを作成
 {% codeblock %}
-kvm-img create -f qcow2 hd.img 8G
+qemu-img create -f raw hd.img 8G
 {% endcodeblock %}
 
 ## debainのインストール用のisoイメージをダウンロードする
