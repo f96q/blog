@@ -1,0 +1,32 @@
+---
+layout: post
+title: "KVMでインストールするときqcow2形式のディスクイメージが正しくサイズが認識されない"
+date: 2012-08-14 07:08
+comments: true
+categories:
+---
+qcow2形式のディスクイメージを指定してvirt-installをすると、
+容量が仮想的なサイズじゃなくて、ディスクイメージを作ったサイズになってしまって容量が足りなくて
+インストールできないということになって調べていたら、ディスクを指定する時にformat=qcow2という指定が必要ということが分かった。
+
+## qcow2形式のディスクイメージを作成
+{% codeblock %}
+qemu-img create -f qcow2 debian20G.qcow2 20G
+{% endcodeblock %}
+
+## インストールスクリプト
+{% codeblock %}
+#!/bin/sh
+virt-install --name=debian \
+             -connect=qemu:///system \
+             --ram=1024 --vcpus=1 \
+             --os-type=linux \
+             --hvm \
+             --virt-type=kvm \
+             --disk=/home/danny/debian20G.qcow2,format=qcow2 \
+             --cdrom=debian-6.0.5-amd64-i386-netinst.iso \
+             --vnc \
+             --vncport=5900 \
+             --vnclisten=0.0.0.0 \
+             --network=bridge:br0
+{% endcodeblock %}
