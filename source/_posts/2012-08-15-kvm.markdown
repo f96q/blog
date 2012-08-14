@@ -1,0 +1,29 @@
+---
+layout: post
+title: "KVMでよく使うコマンドなど"
+date: 2012-08-15 06:28
+comments: true
+categories:
+---
+vm1という名前のドメインを付けてvmを作った場合
+
+## ドメインの一覧表示
+{% codeblock %}
+virsh list --all
+{% endcodeblock %}
+
+## 起動
+{% codeblock %}
+virsh start vm1
+{% endcodeblock %}
+
+## 終了
+{% codeblock %}
+virsh shutdown vm1
+{% endcodeblock %}
+
+## ドメインの削除
+{% codeblock %}
+virsh undefine vm1
+{% endcodeblock %}
+すでにあるドメイン名と同じ名前を付けて新規に作り直す場合これで削除しないと起動できなかった。
