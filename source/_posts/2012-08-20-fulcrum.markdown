@@ -1,0 +1,50 @@
+---
+layout: post
+title: "Fulcrumのインストール"
+date: 2012-08-20 06:22
+comments: true
+categories:
+---
+
+自分の用途に合うように若干修正した。
+[https://github.com/f96q/fulcrum/tree/fix](https://github.com/f96q/fulcrum/tree/fix)
+
+## 修正した点など。
++ mysqlを使うように
++ unicornで動かせるように
++ therubyracerを追加
++ action mailerの設定を少し修正
+
+## mysql関係のインストール
+{% codeblock %}
+apt-get install mysql-server mysql-client libmysqlclient-dev
+{% endcodeblock %}
+
+## Fulcrumのインストール
+{% codeblock %}
+git clone git@github.com:f96q/fulcrum.git
+git checkout -b fix origin/fix
+bundle exec rake fulcrum:setup
+RAILS_ENV=production bundle exec rake db:create
+RAILS_ENV=production bundle exec rake db:schema:load
+bundle insalll --path .bundle --without test development
+bundle exec rake assets:precompile
+{% endcodeblock %}
+
+## unicornで動かす
+{% codeblock lang:ruby %}
+bundle exec unicorn -c config/unicorn/production.rb -E production -D
+{% endcodeblock %}
+
+ソケットのパス
+{% codeblock %}
+/tmp/fulcrum-production.sock
+{% endcodeblock %}
+
+##メールを使わないでユーザーを使えるようにする方法
+script console
+
+{% codeblock lang:ruby %}
+User.first.confirm!
+User.first.update_attributes!(:password => 'pass')
+{% endcodeblock %}
