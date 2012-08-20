@@ -1,0 +1,32 @@
+---
+layout: post
+title: "GitLabのインストール"
+date: 2012-08-21 08:27
+comments: true
+categories:
+---
+
+自分の用途に合うように若干修正した。
+[https://github.com/f96q/gitlabhq/tree/fix](https://github.com/f96q/gitlabhq/tree/fix)
+
+## 修正した点など。
++ sqlite使わないのでGemfileから外した
++ thin使わないのでGemfileから外した
++ mysqlの設定を修正
+
+## インストールとか
+[https://github.com/gitlabhq/gitlabhq/blob/stable/doc/installation.md](https://github.com/gitlabhq/gitlabhq/blob/stable/doc/installation.md)
+
+わかりすく手順が書かれていて良い。
+
+## 最初にログインする時
+最初にログインするユーザーが分からなかったので、
+script consoleで調べたらユーザー名はadmin@local.hostで
+パスワードを変更したらログインできた。
+
+{% codeblock lang:ruby %}
+User.first.update_attributes!(:password => 'pass')
+{% endcodeblock %}
+
+## その他
+前にGitoriousを入れようとして、試行錯誤したらインストールの手順が面倒でやめたんですがGitoriousに比べたらインストールしやすくていいと思いました。
