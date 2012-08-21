@@ -1,0 +1,36 @@
+---
+layout: post
+title: "Rspecで指定したテストのみ実行する"
+date: 2012-08-22 06:31
+comments: true
+categories:
+---
+
+指定したテストのみ実行できるのがテストケースが増えてきた時に便利だった。
+
+run_all_when_everything_filteredはfocusがついてない場合は全部のテストを実行するのでguardとか使ってる場合は設定しといた方がいいと思います。
+
+個人的にはauto-save-buffers.elと相性が悪いので使ってないですが。
+
+## 設定
+
+{% codeblock /spec/spec_helper.rb %}
+RSpec.configure do |config|
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+end
+{% endcodeblock %}
+
+## テスト
+
+{% codeblock lang:ruby %}
+describe 'test' do
+  it 'test1', :focus do
+  end
+
+  it 'test2' do
+  end
+end
+{% endcodeblock %}
+これでtest1だけ実行される。
