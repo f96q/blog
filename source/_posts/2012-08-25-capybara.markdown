@@ -1,0 +1,28 @@
+---
+layout: post
+title: "capybaraで複数の要素を取る"
+date: 2012-08-25 08:40
+comments: true
+categories:
+---
+
+以下のHTMLでcapybaraでoptionの要素を全部取得したい時に
+
+{% codeblock %}
+<select id="test" size=4>
+  <option value="name1">name1</option>
+  <option value="name2">name2</option>
+  <option value="name2">name3</option>
+  <option value="name4">name4</option>
+</select>
+{% endcodeblock %}
+
+{% codeblock lang:ruby %}
+find('#test option')
+{% endcodeblock %}
+optionの最初の要素しか取得できなかった。
+
+{% codeblock lang:ruby %}
+find('#test').all('option')
+{% endcodeblock %}
+optionの要素が全部、配列で取得できた。
