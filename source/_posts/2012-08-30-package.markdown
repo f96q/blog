@@ -1,0 +1,21 @@
+---
+layout: post
+title: "gem使うのに必要なパッケージとか"
+date: 2012-08-30 07:15
+comments: true
+categories:
+---
+
+##nokogiri
+###debian
++ libxml2-dev 
++ libxslt1-dev
+
+##capybara-webkit
+###debian
++ qt4-dev-tools
++ xvfb
+
+##mysql2
+###debian
++ libmysqlclient-dev
