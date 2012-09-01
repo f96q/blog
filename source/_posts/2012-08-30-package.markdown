@@ -6,16 +6,21 @@ comments: true
 categories:
 ---
 
-##nokogiri
-###debian
-+ libxml2-dev 
+開発用に使ってるCent OSのVMのディスクイメージの容量がいっぱいになったので、
+この際にDebian Sidに移行しました。
+
+比較的新しいバージョンを使えるのと、
+外部のリポジトリを追加しないと使いたいパッケージがないということもないし、
+rubyの1.9.3が標準のパッケージでインストールできるのはいいですね。
+
+## apt-getでgem使うのに入れたパッケージ
+###nokogiri
++ libxml2-dev
 + libxslt1-dev
 
-##capybara-webkit
-###debian
+###capybara-webkit
 + qt4-dev-tools
 + xvfb
 
-##mysql2
-###debian
+###mysql2
 + libmysqlclient-dev
