@@ -1,0 +1,35 @@
+---
+layout: post
+title: "git commit するまえに考えるべき10のことについてを読んで思ったこと"
+date: 2012-09-07 08:36
+comments: true
+categories:
+---
+[git commit するまえに考えるべき10のこと](http://hiroki.jp/2012/09/05/5523/)を読んで思ったこと。
+
+##不要な空白やタブをコミットしない
+
+個人的にはタブとかスペース混じってるコミットが入ってるとすごく気になります。
+
+.gitconfigに以下を書いておくと
+{% codeblock %}
+[core]
+whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+{% endcodeblock %}
+
+{% codeblock %}
+git log -p
+{% endcodeblock %}
+でタブが混じってるとハイライトされるのでこれで確認してしています。
+
+## 不要なファイルをコミットしない
+
+不要なファイルは他の人が使ってるエディタであったりそれ以外のソフトでバックアップファイルが
+\#とか~とかではない場合があるので.gitignoreに入れるよりはgit configか.gitconfigで設定した方がいいんじゃないかな
+と思いました。
+
+そのプロジェクトで必ず出来てしまってコミットする必要がないものに関しては.gitignoreに入れていいと思いました。
+
+## 他人が理解できるメッセージ
+
+これは難しいですね。こころがけるようにはしたい。
