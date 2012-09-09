@@ -1,0 +1,36 @@
+---
+layout: post
+title: "Ember.jsを使ったデモアプリを調べた"
+date: 2012-09-08 20:45
+comments: true
+categories:
+---
+
+[Ember.js](http://emberjs.com)を使うことになって、リファレンス見ただけだと使い方が分からないので、githubでデモアプリを調べた。
+
+もっとあったんだけど、その中で参考になりそうなものを。
+
+### 本体のソースコード
+  + [https://github.com/emberjs/ember.js](https://github.com/emberjs/ember.js)
+
+### rails + ember-data使ったデモ
+  + [https://github.com/Rhodee/ember_rails_demo](https://github.com/Rhodee/ember_rails_demo)
+  + [https://github.com/dgeb/ember_data_example](https://github.com/dgeb/ember_data_example)
+  + [https://github.com/shwoodard/ember_app](https://github.com/shwoodard/ember_app)
+
+### rails + ember-rest使ったデモ
+  + [https://github.com/ZenCocoon/ember-rails-coffee-demo](https://github.com/ZenCocoon/ember-rails-coffee-demo)
+
+  coffee script使用
+
+  + [https://github.com/mmacedo/ember_rest_rails_example](https://github.com/mmacedo/ember_rest_rails_example)
+
+### その他
+ + [https://github.com/bostonember/bostonember](https://github.com/bostonember/bostonember)
+
+  バックエンドなし
+
+### ライブラリ
+  + [ember-rails](https://github.com/emberjs/ember-rails)
+  + [ember-data](https://github.com/emberjs/data)
+  + [ember-rest](https://github.com/cerebris/ember-rest)
