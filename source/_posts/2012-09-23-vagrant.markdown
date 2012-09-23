@@ -1,0 +1,78 @@
+---
+layout: post
+title: "vagrant sandboxが便利な件"
+date: 2012-09-23 08:46
+comments: true
+categories:
+---
+
+今までなんかのインストールして設定するchefのレシピを
+書くときに途中でレシピを間違った時にインストールしてない状態にしてやり直すのに
+毎回vagrant destroyしてvmを作り直してやってて時間がかかって大変だったんだけど、
+sandboxを使える方法があるということが分かった。
+
+## gemを追加
+{% codeblock Gemfile lang:ruby %}
+gem 'sahara'
+{% endcodeblock %}
+
+## vagrantを起動する
+{% codeblock lang:sh %}
+$ bundle exec vagrant up
+[default] VM already created. Booting if it's not already running...
+[default] Clearing any previously set forwarded ports...
+[default] Forwarding ports...
+[default] -- 22 => 2222 (adapter 1)
+[default] Creating shared folders metadata...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Running any VM customizations...
+[default] Booting VM...
+[default] Waiting for VM to boot. This can take a few minutes.
+{% endcodeblock %}
+
+## sandboxを有効にする
+{% codeblock lang:sh %}
+$ bundle exec vagrant sandbox on
+[default] - Enabling sandbox
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+{% endcodeblock %}
+
+{% codeblock lang:sh %}
+$ bundle exec vagrant ssh
+{% endcodeblock %}
+
+ここでなんかインストールしたりする
+
+## 巻き戻す
+{% codeblock lang:sh %}
+$ bundle exec vagrant sandbox rollback
+[default] - powering off machine
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+[default] - roll back machine
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+[default] - starting the machine again
+{% endcodeblock %}
+
+{% codeblock lang:sh %}
+$ bundle exec vagrant ssh
+{% endcodeblock %}
+
+インストールする前の状態に戻ってる
+
+## sandboxを無効にする
+{% codeblock lang:sh %}
+$ bundle exec vagrant sandbox off
+[default] - switching sandbox off
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+{% endcodeblock %}
+
+## sandboxをでやったことを反映する
+{% codeblock lang:sh %}
+$ bundle exec vagrant sandbox commit
+[default] - unwinding sandbox
+0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+[default] - fastforwarding sandbox
+00%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+{% endcodeblock %}
+
