@@ -1,0 +1,17 @@
+---
+layout: post
+title: "OmniAuthでFacebookログインを押した時にキャンセルを押すとエラーになる"
+date: 2012-09-26 08:35
+comments: true
+categories:
+---
+
+OmniAuth::Strategies::OAuth2::CallbackErrorという例外が発生していた。
+
+{% codeblock /config/initializers/omniauth.rb %}
+OmniAuth.config.on_failure = Proc.new do |env|
+  OmniAuth::FailureEndpoint.new(env).redirect_to_failure
+end
+{% endcodeblock %}
+
+こう書いておくと例外で止まらないで/auth/failureに飛ぶようになる。
