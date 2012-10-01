@@ -1,0 +1,18 @@
+---
+layout: post
+title: "jenkinsでテストが全部通ったらデプロイ"
+date: 2012-10-02 08:41
+comments: true
+categories:
+---
+
+1. デプロイ用の別なプロジェクトを作成しておく
+
+2. ビルド後の処理の追加 -> 他のプロジェクトをビルド
+
+3. この時デプロイ用に指定したプロジェクト名を入力する
+
+## Build Pipeline Plugin
+
+これは必須ではないけど[Build Pipeline Plugin](https://code.google.com/p/build-pipeline-plugin)を入れてBuild Pipeline Viewを追加しておくと
+どうゆう流れで実行されるかが見やすくなる。
