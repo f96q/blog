@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "jenkinsでテストが全部通ったらデプロイ"
+title: "Jenkinsでテストが全部通ったら別なジョブを実行する"
 date: 2012-10-02 08:41
 comments: true
 categories:
