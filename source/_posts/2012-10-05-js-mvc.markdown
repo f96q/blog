@@ -1,0 +1,151 @@
+---
+layout: post
+title: "todoアプリ作るのに必要だったコード量の比較"
+date: 2012-10-05 09:19
+comments: true
+categories:
+---
+
+todoアプリをいろんなjsのmvcフレームワーク使って作ったサンプルが置いてある
+[TodoMVC](http://addyosmani.github.com/todomvc)のサンプルのコード量を出してみた。
+
+## Ember.js
+
+### 全部
+{% codeblock lang:sh %}
+ $ find . -type f | xargs wc -l
+     5 ./css/app.css
+    77 ./index.html
+    24 ./js/controllers/todos.js
+    72 ./js/controllers/entries.js
+    15 ./js/app.js
+ 20127 ./js/libs/ember-latest.js
+    85 ./js/views/application.js
+    50 ./js/views/todos.js
+    72 ./js/models/store.js
+    16 ./js/models/todo.js
+    53 ./js/router.js
+ 20596 total
+{% endcodeblock %}
+
+### ライブラリを除いた状態
+{% codeblock lang:sh %}
+ $ find . -path './js/libs' -prune -o -type f -a -print | xargs wc -l
+    5 ./css/app.css
+   77 ./index.html
+   24 ./js/controllers/todos.js
+   72 ./js/controllers/entries.js
+   15 ./js/app.js
+   85 ./js/views/application.js
+   50 ./js/views/todos.js
+   72 ./js/models/store.js
+   16 ./js/models/todo.js
+   53 ./js/router.js
+  469 total
+{% endcodeblock %}
+
+## Angular.js
+
+### 全部
+{% codeblock lang:sh %}
+ $ find . -type f | xargs wc -l
+   73 ./index.html
+   75 ./js/controllers/todoCtrl.js
+    8 ./js/app.js
+   12 ./js/directives/todoBlur.js
+   16 ./js/directives/todoFocus.js
+  158 ./js/libs/angular/angular.min.js
+   18 ./js/services/todoStorage.js
+  360 total
+{% endcodeblock %}
+
+### ライブラリを除いた状態
+{% codeblock lang:sh %}
+ $ find . -path './js/libs' -prune -o -type f -a -print | xargs wc -l
+  73 ./index.html
+  75 ./js/controllers/todoCtrl.js
+   8 ./js/app.js
+  12 ./js/directives/todoBlur.js
+  16 ./js/directives/todoFocus.js
+  18 ./js/services/todoStorage.js
+ 202 total
+{% endcodeblock %}
+
+## Backbone.js
+
+### 全部
+{% codeblock lang:sh %}
+ $ find . -type f | xargs wc -l
+   67 ./index.html
+   38 ./js/lib/backbone-min.js
+   84 ./js/lib/backbone-localstorage.js
+   32 ./js/lib/underscore-min.js
+    9 ./js/app.js
+  132 ./js/views/app.js
+   94 ./js/views/todos.js
+   28 ./js/models/todo.js
+   27 ./js/routers/router.js
+   49 ./js/collections/todos.js
+  560 total
+{% endcodeblock %}
+
+### ライブラリを除いた状態
+{% codeblock lang:sh %}
+ $ find . -path './js/libs' -prune -o -type f -a -print | xargs wc -l
+   67 ./index.html
+    9 ./js/app.js
+  132 ./js/views/app.js
+   94 ./js/views/todos.js
+   28 ./js/models/todo.js
+   27 ./js/routers/router.js
+   49 ./js/collections/todos.js
+  406 total
+{% endcodeblock %}
+
+## Spine
+
+### 全部
+{% codeblock lang:sh %}
+ $ find . -type f | xargs wc -l
+   66 ./index.html
+   40 ./src/controllers/todos.coffee
+   12 ./src/models/todo.coffee
+   88 ./src/app.coffee
+   18 ./Cakefile
+   20 ./readme.md
+   74 ./js/controllers/todos.js
+   30 ./js/lib/local.js
+    7 ./js/lib/route.min.js
+   23 ./js/lib/spine.min.js
+  153 ./js/app.js
+   45 ./js/models/todo.js
+  576 total
+{% endcodeblock %}
+
+### ライブラリを除いた状態
+{% codeblock lang:sh %}
+ $ find . -path './js/lib' -prune -o -type f -a -print | xargs wc -l
+   66 ./index.html
+   40 ./src/controllers/todos.coffee
+   12 ./src/models/todo.coffee
+   88 ./src/app.coffee
+   18 ./Cakefile
+   20 ./readme.md
+   74 ./js/controllers/todos.js
+  153 ./js/app.js
+   45 ./js/models/todo.js
+  516 total
+{% endcodeblock %}
+
+## 結果
+
+framework | 桁数(ライブラリ除く)
+--------|------
+Ember.js | 469
+Angular.js | 202
+Backbone.js | 406
+Spine | 516
+
+## 感想
+
+Angular.jsだけコード量が他のに比べて圧倒的に少なかった。
