@@ -41,4 +41,4 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 ## Contacts
 Twitter: [@f96q](https://twitter.com/#!/f96q)
 
-E-mail: f96q.mail@gmail.com
+E-mail: danielbob77@gmail.com
