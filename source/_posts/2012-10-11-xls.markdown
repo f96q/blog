@@ -1,0 +1,47 @@
+---
+layout: post
+title: "xlsのデータを読み取ったりとか"
+date: 2012-10-11 23:38
+comments: true
+categories:
+---
+
+よくマスターデーターとかエクセルで送られて来たのを使わないといけないことがあったりして、
+正直その手のデーターをエクセルで管理する文化がなくなって欲しいんだけど、世の中的にそれが標準らしい。
+
+セル管理だと分かりにくいのとマイクロソフトの独自フォーマットだからよくないよね。
+
+仕様は公開されてるみたいだけど。
+
+それで毎回、インポートするプログラムを書くわけで[spreadsheet](http://rubygems.org/gems/spreadsheet)っていうgemが使いやすかった。
+
+#シートを取得
+
+{% codeblock lang:ruby %}
+require 'spreadsheet'
+
+book = Spreadsheet.open('input.xls', 'rb')
+sheet = book.worksheet(0)
+{% endcodeblock %}
+
+#n行を取得
+
+{% codeblock lang:ruby %}
+sheet.row(n).each do |v|
+  puts v
+end
+{% endcodeblock %}
+
+#n列を取得
+
+{% codeblock lang:ruby %}
+sheet.column(n).each do |v|
+  puts v
+end
+{% endcodeblock %}
+
+#特定のセルを取得
+
+{% codeblock lang:ruby %}
+puts sheet[row, column]
+{% endcodeblock %}
