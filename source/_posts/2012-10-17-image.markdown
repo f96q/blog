@@ -1,0 +1,62 @@
+---
+layout: post
+title: "複数のばらばらのサイズの画像ファイルを切り抜きして指定したサイズに統一する"
+date: 2012-10-17 12:25
+comments: true
+categories:
+---
+
+サンプルデーターとかの画像のサイズがばらばらだった場合用に作った。
+
+cropする時はcropする前の画像の中心からcropするようにした。
+
+{% codeblock lang:ruby %}
+require 'fileutils'
+
+output = {
+  width: 600,
+  height: 600,
+  resize_width: 930,
+  resize_height: 930,
+  dir: './output'
+}
+
+input = {
+  dir: './input'
+}
+
+FileUtils.mkdir(output[:dir]) unless File.exists?(output[:dir])
+
+files = []
+
+Dir.glob(File.join(input[:dir], '*')).each do |path|
+  files << {input: path, output: File.join(output[:dir], "#{File.basename(path, '.*')}.jpg")}
+end
+
+files.each do |file|
+  data = `identify -format "%wx%h" #{file[:input]}`.strip.split('x').map {|v| v.to_i}
+  image = {width: data[0], height: data[1]}
+  if image[:width] > output[:resize_width]
+    width = output[:resize_width]
+    height = image[:height] * output[:resize_width] / image[:width]
+  else
+    width = image[:width] * output[:resize_height] / image[:height]
+    height = output[:resize_height]
+  end
+  cmd = "convert -resize #{width}x#{height} #{file[:input]} #{file[:output]}"
+  puts cmd
+  system cmd
+
+  data = `identify -format "%wx%h" #{file[:output]}`.strip.split('x').map {|v| v.to_i}
+  image = {width: data[0], height: data[1]}
+
+  if image[:width] < output[:width] || image[:height] < output[:height]
+    raise "image size = #{image[:width]} x #{image[:height]}"
+  end
+  x = image[:width] / 2  - output[:width] / 2
+  y = image[:height] / 2 - output[:height] / 2
+  cmd = "convert -crop #{output[:width]}x#{output[:height]}+#{x}+#{y} #{file[:output]} #{file[:output]}"
+  puts cmd
+  system cmd
+end
+{% endcodeblock %}
