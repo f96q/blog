@@ -1,0 +1,20 @@
+---
+layout: post
+title: "markdown形式をhtmlに変換するのになに使うのがいいんだろうか"
+date: 2012-10-18 14:08
+comments: true
+categories:
+---
+
+[ここ](https://www.ruby-toolbox.com/categories/markup_processors.html)を見て[markup](https://github.com/jameswilding/markup)を試してみた。
+
+{% codeblock lang:sh %}
+$ sudo gem install markup
+{% endcodeblock %}
+
+{% codeblock lang:sh %}
+$ markup 2012-10-17-image.markdown
+  Created 2012-10-17-image.html
+{% endcodeblock %}
+
+これでHTMLに変換できた。
