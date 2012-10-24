@@ -1,0 +1,25 @@
+---
+layout: post
+title: "capybaraでスクリーンショット取ったりとか"
+date: 2012-10-24 13:46
+comments: true
+categories:
+---
+
+最近はvmにLinuxを入れて、それにsshして開発してるのでsave_and_open_pageが使えなくてほかにデバッグする方法がないか調べてみた。
+
+# htmlファイルとして保存
+
+{% codeblock lang:ruby %}
+save_page
+{% endcodeblock %}
+
+save_pageは使えた。プロジェクトルートの/tmp/capybaraに保存される。
+
+# 画像ファイルでスクリーンショットを撮る
+
+{% codeblock lang:ruby %}
+page.driver.render Rails.root.join('screenshot.jpg')
+{% endcodeblock %}
+
+この場合だとプロジェクトルートにscreenshot.jpgで保存される。
