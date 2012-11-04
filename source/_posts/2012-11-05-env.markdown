@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Macにセットアップしたら入れるソフトとか"
+date: 2012-11-05 07:27
+comments: true
+categories:
+---
+
+環境構築する時間かかりすぎてコード書く時間がなくなってしまうみたいなことにならないように必要最低限にしてるんだけど。
+
+新しいMacBookに環境作るのに書いておこうかと思って。
+
+# KeyRemap4MacBook
+
+[http://pqrs.org/macosx/keyremap4macbook/index.html.ja](http://pqrs.org/macosx/keyremap4macbook/index.html.ja)
+
+標準のキーリピートがびっくりするぐらい遅いのでこれ使うと早くなっていい。
+
+# mplayer2
+
+[http://www.mplayer2.org](http://www.mplayer2.org)
+
+CUIで音楽を再生できるからいい。
+home brewのmplayerでもCUIのmplayerをインストールできるんだけどビルドしないといけないのと今は大丈夫になったかもしれないけどビルドができなかったので。
+
+# dotファイル関係
+[git@github.com:f96q/dotfiles.git](https://github.com/f96q/dotfiles)
+
+自分用の設定ファイルgit cloneしてsetup.shを実行するとシンボリックリンクを貼って使えるようにしてある。
+
+# Xcode
+開発者はみんな入れてるんじゃないかな。
+
+# VirtualBox
+サーバーサイドの開発するのにMacで直接環境を作らないでVMのLinuxでやってるので。
