@@ -1,0 +1,30 @@
+---
+layout: post
+title: "gitでmergeコミットをrevertする"
+date: 2012-11-01 06:15
+comments: true
+categories:
+---
+
+github使ってて、pull requestでなんかの機能がマージされたんだけど、それを使わなくなって無効にしたいけどまた使う可能性があってコミットログには残しておきたい時とかに。
+
+# mergeコミット
+
+{% codeblock lang:sh %}
+commit e82b37cd4c0434505ce9c006f56bb274b4b34530
+Merge: 6358182 9824a4a
+Author: danny <f96q.mail@gmail.com>
+Date:   Wed Oct 31 23:43:49 2012 -0700
+
+    Merge pull request #169 from test/test
+
+    test
+{% endcodeblock %}
+
+# コマンド
+
+{% codeblock lang:sh %}
+$ git revert -m 1 e82b37cd4c0434505ce9c006f56bb274b4b34530
+{% endcodeblock %}
+
+とするとそのpull requestに入ってたコミットがまとめてrevertできる。
