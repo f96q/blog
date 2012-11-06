@@ -1,0 +1,85 @@
+---
+layout: post
+title: "Zeusを試してみた"
+date: 2012-11-07 08:06
+comments: true
+categories:
+---
+
+Railsの起動を高速化する[Zeus](https://github.com/burke/zeus)を試してみた。
+
+# インストール
+
+{% codeblock lang:sh %}
+$ sudo gem install zeus
+{% endcodeblock %}
+
+# 動かしてみる
+
+railsのプロジェクトルートで
+{% codeblock lang:sh %}
+$ zeus init
+Wrote zeus.json
+{% endcodeblock %}
+
+# zeus.jsonの中身
+
+{% codeblock lang:sh %}
+$ cat zeus.json
+{
+  "command": "ruby -rubygems -rzeus/rails -eZeus.go",
+
+  "plan": {
+    "boot": {
+      "default_bundle": {
+        "development_environment": {
+          "prerake": {"rake": []},
+          "runner": ["r"],
+          "console": ["c"],
+          "server": ["s"],
+          "generate": ["g"],
+          "dbconsole": []
+        },
+        "test_environment": {
+          "cucumber_environment": {"cucumber": []},
+          "test_helper": {"test": ["rspec", "testrb"]}
+        }
+      }
+    }
+  }
+}
+{% endcodeblock %}
+
+# Zeus起動
+
+{% codeblock lang:sh %}
+$ zeus start
+Starting Zeus server
+[ready] [crashed] [running] [connecting] [waiting]
+boot
+└── default_bundle
+    ├── development_environment
+    │  └── prerake
+    └── test_environment
+        ├── test_helper
+        └── cucumber_environment
+
+Available Commands: [waiting] [crashed] [ready]
+zeus runner (alias: r)
+zeus generate (alias: g)
+zeus rake
+zeus console (alias: c)
+zeus server (alias: s)
+zeus dbconsole
+zeus test (alias: rspec, testrb)
+zeus cucumber
+{% endcodeblock %}
+
+# Rails起動
+
+railsのプロジェクトルートで
+{% codeblock lang:sh %}
+$ zeus server
+{% endcodeblock %}
+
+rails serverで起動してた時に比べて大分立ち上がりが早かった。
