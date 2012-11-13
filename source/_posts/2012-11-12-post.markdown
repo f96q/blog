@@ -1,0 +1,18 @@
+---
+layout: post
+title: "東京Ruby会議10で発表することになりました"
+date: 2012-11-12 08:41
+comments: true
+categories:
+---
+
+ちょっと前から決まってたんですがまだ表に情報が出てなかったので、ブログに書いてなかったんですが
+[東京Ruby会議10のサイト](http://tokyo10.rubykaigi.info/)でも公開されたのでブログにも書きました。
+
+1月13日の17:45-18:00です。
+
+[Tripclip](http://tripclip.jp/)について話します。
+
+[http://tokyo10.rubykaigi.info/speakers/35](http://tokyo10.rubykaigi.info/speakers/35)
+
+暇な人はよかったらぜひ。
