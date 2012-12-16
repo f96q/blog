@@ -1,0 +1,15 @@
+---
+layout: post
+title: "rubyでuuid"
+date: 2012-12-13 03:40
+comments: true
+categories:
+---
+
+前まで知らなくて、[uuidtools](https://github.com/sporkmonger/uuidtools)っていうgemを使ってたんだけど標準でできた。
+
+{% codeblock lang:ruby %}
+SecureRandom.uuid
+{% endcodeblock %}
+
+で生成できる。
