@@ -1,0 +1,150 @@
+---
+layout: post
+title: "DCIを使ってみた"
+date: 2012-12-17 8:10
+comments: true
+categories:
+---
+
+#概要
+DCI(Data Context Interaction)を使ってみました。
+例は購入する時のパラメーターを作成する処理で、複数のモデル(User, Cart, Item)を使って処理をしないといけない場合の時です。
+
+# DCIを使わない場合
+{% codeblock lang:ruby %}
+class User
+  has_many :carts
+
+  def payment_hash
+    {
+      full_name: "#{last_name} #{first_name}",
+      postal_code: "#{zip1}-#{zip2}"
+    }
+  end
+end
+
+class Item
+  belongs_to :cart
+
+  def payment_hash
+    {
+      item_id: id
+    }
+  end
+end
+
+class Cart
+  belongs_to :user
+  has_many :items
+
+  def payment_hash
+    {
+      id: id,
+      customer: user.payment_hash,
+      request: cart.payment_hash,
+      products: items.map(&:payment_hash)
+    }
+  end
+end
+{% endcodeblock %}
+
+#実行
+{% codeblock lang:ruby %}
+@cart = Cart.first
+@cart.payment_hash
+{% endcodeblock %}
+
+各モデルに対してメソッドを追加しないといけなくなるので、複数のモデルを使って、なにかの処理を実装する場合にモデルが肥大化していく。
+
+# DCIを使った場合
+{% codeblock app/contexts/payment_params_context.rb %}
+class PaymentParamsContext
+  module UserRole
+    def payment_hash
+      {
+        full_name: "#{last_name} #{first_name}",
+        postal_code: "#{zip1}-#{zip2}"
+      }
+    end
+  end
+
+  module CartRole
+    def payment_hash
+      {
+        full_name: "#{last_name} #{first_name}",
+        postal_code: "#{zip1}-#{zip2}"
+      }
+    end
+  end
+
+  module ItemRole
+    def payment_hash
+      {
+        item_id: id
+      }
+    end
+  end
+
+  attr_reader :cart, :user, :items
+
+  def self.execute(cart)
+    PaymentParamsContext.new(cart).execute
+  end
+
+  def initialize(cart)
+    @cart = cart
+    @user = @cart.user
+    @cart.extend CartRole
+    @user.extend UserRole
+    @items = @cart.items.map {|item| item.extend ItemRole }
+  end
+
+  def execute
+    {
+      id: @cart.id,
+      customer: @user.payment_hash,
+      request: @cart.payment_hash,
+      products: @items.map(&:payment_hash)
+    }
+  end
+end
+{% endcodeblock %}
+
+#実行
+{% codeblock lang:ruby %}
+@cart = Cart.first
+PaymentParamsContext.execute(@cart)
+{% endcodeblock %}
+
+生成したインスタンスに対してextendして処理に使うメソッドを追加しているのでモデル自体に手を加えなくて済むので、モデルが肥大化しない。
+
+#テストの書き方
+{% codeblock spec/contexts/payment_params_context_spec.rb %}
+describe 'PaymentParamsContext' do
+  context 'UserRole' do
+    let(:user) { Fabricate(:user) }
+    before { user.extend PaymentParamsContext::UserRole }
+    it do
+      user.payment_hash
+    end
+  end
+
+  context 'CartRole' do
+   let(:cart) { Fabricate(:cart) }
+    before { cart.extend PaymentParamsContext::CartRole }
+    it do
+      cart.payment_hash
+    end
+  end
+
+  context 'ItemRole' do
+    let(:item) { Fabricate(:item) }
+    before { cart.extend PaymentParamsContext::ItemRole }
+    it do
+      item.payment_hash
+    end
+  end
+end
+{% endcodeblock %}
+
+インスタンスに対してextendすればいいので、独立性があってテストが書きやすい。
