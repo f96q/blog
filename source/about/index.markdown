@@ -32,7 +32,7 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 ## Environment
 
 + MacBook Pro 13-inch
-+ MacBook Air 13-inch
++ MacBook Pro 13-inch Retina
 + Emacs
 + zsh
 + screen
