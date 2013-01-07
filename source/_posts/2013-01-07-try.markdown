@@ -1,0 +1,24 @@
+---
+layout: post
+title: "nillが混じってくる場合があるパラメータのチェック"
+date: 2013-01-07 21:46
+comments: true
+categories:
+---
+
+#一個ずつチェックして行く
+{% codeblock lang:ruby %}
+params = ActionController::Parameters.new({:aaa => {:bbb => "test"}})
+params[:aaa].nil?
+params[:aaa][:bbb].nil? unless params[:aaa].nil?
+{% endcodeblock %}
+
+これだと一つ一つチェックしないといけない。
+
+# Object#tryを使ってみる
+{% codeblock lang:ruby %}
+params = ActionController::Parameters.new({:aaa => {:bbb => "test"}})
+params.try(:[], :aaa).try(:[], :bbb)
+{% endcodeblock %}
+
+これだと一行で判定できる。
