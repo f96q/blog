@@ -1,0 +1,24 @@
+---
+layout: post
+title: "gitでpullするときのデフォルトの動作をrebaseオプション付きにする"
+date: 2013-01-22 14:28
+comments: true
+categories:
+---
+
+#設定
+{% codeblock lang:bash ~/.gitconfig %}
+[pull]
+  rebase = true
+{% endcodeblock %}
+
+#実行
+{% codeblock lang:bash ~/.gitconfig %}
+git pull
+{% endcodeblock %}
+
+すると以下と同じ動作になる。
+
+{% codeblock lang:bash ~/.gitconfig %}
+git pull --rebase
+{% endcodeblock %}
