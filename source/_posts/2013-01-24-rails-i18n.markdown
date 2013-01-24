@@ -1,0 +1,31 @@
+---
+layout: post
+title: "railsで名前空間付きのモデルの翻訳"
+date: 2013-01-24 09:19
+comments: true
+categories:
+---
+
+名前空間付きのモデルを定義した時に
+
+{% codeblock lang:ruby %}
+class Blog::Comment < ActiveRecord::Base
+end
+{% endcodeblock %}
+
+翻訳ファイルに以下のように書いておくと
+
+{% codeblock /config/locales/ja.yml %}
+ja:
+  activerecord:
+    attributes:
+      blog/comment:
+        title: タイトル
+
+{% endcodeblock %}
+
+{% codeblock lang:ruby %}
+I18n.t('activerecord.attributes.blog/comment.title')
+{% endcodeblock %}
+
+これで翻訳できた。
