@@ -7,30 +7,30 @@ sharing: true
 footer: true
 ---
 
-## Danny
+## danny
 ![](/images/uploads/face.jpg)
 
-## Profile
 I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010.
 
-## Blogs
+## Activities
+### 2013
++ Speaker: 東京Ruby会議10 事後懇親会:Q [東京Ruby会議10に参加しての感想](https://speakerdeck.com/f96q/deng-qiang-rubyhui-yi-10nican-jia-sitefalsegan-xiang)
++ Speaker: 東京Ruby会議10 [Inside Tripclip](https://speakerdeck.com/f96q/inside-tripclip)
 
-+ [がむしゃらにコードを書き続けるブログ](http://d.hatena.ne.jp/f96q)
+## Blogs
++ [がむしゃらにコードを書き続けるBlog](http://f96q.github.com)
 + [Kray Blog](http://kray.jp/author/danny)
 
 ## Programming Languages
-
 + Ruby
 + JavaScript
 + CoffeeScript
 + Objective-C
 
 ## Frameworks
-
 + Ruby on Rails
 
 ## Environment
-
 + MacBook Pro 13-inch
 + MacBook Pro 13-inch Retina
 + Emacs
@@ -40,5 +40,3 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 
 ## Contacts
 Twitter: [@f96q](https://twitter.com/#!/f96q)
-
-E-mail: danielbob77@gmail.com
