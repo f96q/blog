@@ -17,6 +17,9 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 + Speaker: 東京Ruby会議10 事後懇親会:Q [東京Ruby会議10に参加しての感想](https://speakerdeck.com/f96q/deng-qiang-rubyhui-yi-10nican-jia-sitefalsegan-xiang)
 + Speaker: 東京Ruby会議10 [Inside Tripclip](https://speakerdeck.com/f96q/inside-tripclip)
 
+## GitHub
+[https://github.com/f96q](https://github.com/f96q)
+
 ## Blogs
 + [がむしゃらにコードを書き続けるBlog](http://f96q.github.com)
 + [Kray Blog](http://kray.jp/author/danny)
