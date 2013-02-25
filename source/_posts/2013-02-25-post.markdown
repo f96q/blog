@@ -1,0 +1,13 @@
+---
+layout: post
+title: "Rubyist Magazine 0041 号に載りました"
+date: 2013-02-25 03:12
+comments: true
+categories:
+---
+
+[東京Ruby会議10のレポート](http://jp.rubyist.net/magazine/?0041-TokyoRubyKaigi10Report_1st)で、こないだ発表したことについて書いてもらったようです。
+
+まだ学生だった当時、るびまの１号とか２号とかだった頃から読んでたのでそれに自分が載ること事態がびっくりしました。
+
+どうもありがとうございました。
