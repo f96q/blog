@@ -1,0 +1,25 @@
+---
+layout: post
+title: "Xcode SDKでiPhoneの画面サイズの取得方法"
+date: 2013-03-03 00:19
+comments: true
+categories:
+---
+
+iPhone5が出る前のiPhoneアプリをiPhoneの4inichの画面サイズに対応させるのに調べてたら高さが固定になってる箇所があって、
+今回3.5inchと両方対応できるように取得して計算するように直したので各高さの取得方法を調べた。
+
+# 全体の高さ
+{% codeblock lang:objc %}
+[[UIScreen mainScreen] bounds].size.height
+{% endcodeblock %}
+
+# ステータスバーの高さ
+{% codeblock lang:objc %}
+[[UIApplication sharedApplication] statusBarFrame].size.height
+{% endcodeblock %}
+
+# ナビゲーションコントローラーのナビゲーションバーの高さ
+{% codeblock lang:objc %}
+self.navigationController.navigationBar.frame.size.height
+{% endcodeblock %}
