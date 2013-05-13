@@ -1,0 +1,14 @@
+---
+layout: post
+title: "gitにpushすると411が返る"
+date: 2013-05-13 23:49
+comments: true
+categories:
+---
+
+HTTPサーバーのファイルサイズの上限の設定に問題がない場合、
+gitのhttp.postBufferを大きくすると直った。
+
+# 参考
+
+[GITのPUSH上限は1MBだそうだ](http://fullbacca.jp/?p=35)
