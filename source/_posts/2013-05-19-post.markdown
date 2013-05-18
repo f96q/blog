@@ -1,0 +1,8 @@
+---
+layout: post
+title: "土曜日、一日中寝てしまった"
+date: 2013-05-19 02:01
+comments: true
+categories:
+---
+なにかと疲れてたみたい。
