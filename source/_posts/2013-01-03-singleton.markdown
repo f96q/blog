@@ -10,13 +10,21 @@ categories:
 最近のXcode 4.5.2でビルドすると- (void)releaseを空定義するとwarningが出るようになってしまって、最近はdispatch_onceでやる方法があった。
 
 {% codeblock lang:objc %}
-#define DEFINE_SINGLETON(_type_) \
-+ (_type_ *)sharedInstance { \
-  static _type_ *_sharedInstance = nil; \
-  static dispatch_once_t predicate; \
-  dispatch_once(&predicate, ^ { \
-    _sharedInstance = [[self alloc] init];\
-  });\
-  return _sharedInstance;\
-}\
+#define DEFINE_SINGLETON(_type_)                  \
+  + (_type_ *)sharedInstance {                    \
+    static _type_ *_sharedInstance = nil;         \
+    static dispatch_once_t predicate;             \
+    dispatch_once(&predicate, ^ {                 \
+      _sharedInstance = [[self alloc] init];      \
+    });                                           \
+    return _sharedInstance;                       \
+  }                                               \
+  + (_type_*)allocWithZone:(NSZone *)zone {       \
+    static _type_ *sharedInstance = nil;          \
+    static dispatch_once_t predicate;             \
+    dispatch_once(&predicate, ^{                  \
+      sharedInstance = [super allocWithZone:zone];\
+    });                                           \
+    return sharedInstance;                        \
+  }                                               \
 {% endcodeblock %}
