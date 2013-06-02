@@ -1,0 +1,13 @@
+---
+layout: post
+title: "sqliteのコンソールをquiteする方法"
+date: 2013-06-02 21:58
+comments: true
+categories:
+---
+
+{% codeblock lang:sh %}
+sqlite> .q
+{% endcodeblock %}
+
+quiteとかexitとか打っても終了しなかった。
