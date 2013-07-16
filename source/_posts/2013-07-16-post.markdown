@@ -1,0 +1,9 @@
+---
+layout: post
+title: "最近の目標"
+date: 2013-07-16 23:33
+comments: true
+categories:
+---
+
+休日の活動できる時間を増やす。
