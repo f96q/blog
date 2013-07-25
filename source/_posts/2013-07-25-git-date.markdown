@@ -1,0 +1,11 @@
+---
+layout: post
+title: "gitで後からdateを変更する"
+date: 2013-07-25 12:20
+comments: true
+categories:
+---
+
+{% codeblock lang:bash %}
+git commit --amend --date="$(date -R)"
+{% endcodeblock %}
