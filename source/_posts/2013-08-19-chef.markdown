@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Chef関係で使うコマンド"
+date: 2013-08-19 13:49
+comments: true
+categories:
+---
+
+## 初期設定
+
+knife configure
+
+## Chefのリポジトリ作成
+
+knife solo init [repositoryname]
+
+## ローカルのマシンにvmのsshの設定を追加
+
+vagrant ssh-config --host [hostname] >> ~/.ssh/config
+
+## 外部のcookbookをインストール
+
+berks install --path cookbooks
+
+## Chef Soloインストール
+
+knife solo prepare [hostname]
+
+## レシピ作成
+
+knife cookbook create [recipename] -o site-cookbooks
+
+## Chef Solo実行
+
+knife solo cook [hostname]
