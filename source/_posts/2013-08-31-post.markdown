@@ -1,0 +1,9 @@
+---
+layout: post
+title: "バグを出しにくくする方法"
+date: 2013-08-31 22:21
+comments: true
+categories:
+---
+
+コード量を減らすように工夫して書く。
