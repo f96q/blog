@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Xcodeの4.6とXcode5を両方インストールする方法"
+date: 2013-09-17 07:29
+comments: true
+categories:
+---
+
+![](/images/uploads/xcode.png")
+
+前のXcodeをリネームしてから新しい方のXcodeをインストールする。
