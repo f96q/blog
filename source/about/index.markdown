@@ -25,7 +25,7 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 [https://github.com/f96q](https://github.com/f96q)
 
 ## Blogs
-+ [がむしゃらにコードを書き続けるBlog](http://f96q.github.com)
++ [ガイアが俺にもっとコード書けと囁いている](http://f96q.github.com)
 + [Kray Blog](http://kray.jp/author/danny)
 
 ## Programming Languages
