@@ -43,6 +43,3 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 + zsh
 + screen
 + Happy Hacking Keyboard Professional2 Type-S
-
-## Contacts
-Twitter: [@f96q](https://twitter.com/#!/f96q)
