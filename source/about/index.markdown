@@ -12,6 +12,9 @@ footer: true
 
 I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010.
 
+## Groups
++ [世界を変える合宿](http://sekaiokaeru.tumblr.com)
+
 ## Contributes
 + [https://github.com/cloudinary/cloudinary_gem/pull/55](https://github.com/cloudinary/cloudinary_gem/pull/55)
 
