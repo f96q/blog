@@ -1,0 +1,11 @@
+---
+layout: post
+title: "３連休にうなぎ食べに行ってきました"
+date: 2013-10-15 00:20
+comments: true
+categories:
+---
+
+![](/images/uploads/unagi.jpg")
+
+美味かった。
