@@ -1,0 +1,13 @@
+---
+layout: post
+title: "全ての要素に枠を付ける"
+date: 2013-10-24 01:50
+comments: true
+categories:
+---
+
+HTMLの構造の確認用に書いた。
+
+{% codeblock lang:js %}
+$('*').css({'border' : '1px solid black'})
+{% endcodeblock %}
