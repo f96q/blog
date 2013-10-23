@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Capistranoで設置してるサーバーから設置するサーバーに対してデプロイする"
+date: 2013-10-23 00:11
+comments: true
+categories:
+---
+
+コピーで転送するパスが一時的にファイルを圧縮するパスと同じになってしまってエラーになってデプロイできない時の対策。
+
+{% codeblock lang:sh %}
+set :deploy_via, :copy
+{% endcodeblock %}
+
+になってる時に
+
+{% codeblock lang:sh %}
+set :copy_remote_dir, 'path'
+{% endcodeblock %}
+
+のパスの設定を/var/tmp意外のパスにする。
