@@ -1,0 +1,11 @@
+---
+layout: post
+title: "性格診断セブンで性格診断してみた"
+date: 2013-10-25 22:50
+comments: true
+categories:
+---
+
+結果[これ](http://seikaku7.com/16seikaku/istj.php)だった。
+
+いつもすいません。自分の周りの人たち。
