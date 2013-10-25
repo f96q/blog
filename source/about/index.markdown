@@ -8,7 +8,6 @@ footer: true
 ---
 
 ## danny
-![](/images/uploads/face.jpg)
 
 I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010.
 
