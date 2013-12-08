@@ -1,0 +1,19 @@
+---
+layout: post
+title: "RubyでSassを実行する方法"
+date: 2013-12-07 16:48
+comments: true
+categories:
+---
+
+{% codeblock lang:ruby %}
+def sass_evaluate(source)
+  Sass::Script::Parser.parse(source, 0, 0).perform(Sass::Environment.new).to_s
+end
+{% endcodeblock %}
+
+# 実行例
+
+{% codeblock lang:ruby %}
+sass_evaluate('lighten(#bfbfbf, 35%)')
+{% endcodeblock %}

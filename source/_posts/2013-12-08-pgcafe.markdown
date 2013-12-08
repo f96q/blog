@@ -1,0 +1,15 @@
+---
+layout: post
+title: "2013 プログラマーズカフェ 忘年会で発表しました"
+date: 2013-12-08 16:48
+comments: true
+categories:
+---
+
+<script async class="speakerdeck-embed" data-id="b4c5d6504210013152105a61e6e92c6d" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+[2013 プログラマーズカフェ 忘年会](http://atnd.org/events/44974)
+
+#発表について
+
+今年一年間でやったことと、開発合宿で開発しているプロダクトについて発表しました。
