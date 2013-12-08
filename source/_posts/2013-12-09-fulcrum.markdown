@@ -1,0 +1,11 @@
+---
+layout: post
+title: "Fulcrumでrakeタスクでユーザーを作る方法"
+date: 2013-12-09 0:10
+comments: true
+categories:
+---
+
+{% codeblock lang:ruby %}
+rake "fulcrum:create_user['email', 'name', 'initials', 'password']"
+{% endcodeblock %}
