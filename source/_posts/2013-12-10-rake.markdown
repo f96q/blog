@@ -1,0 +1,31 @@
+---
+layout: post
+title: "railsでdb/seed.rbが肥大化しないようにする方法"
+date: 2013-12-10 00:13
+comments: true
+categories:
+---
+
+rakeタスクを分割してdb/seed.rbでそれらを呼び出す。
+
+{% codeblock lib/task/sample.rake lang:ruby %}
+namespace :sample do
+  task :import => :environment do
+  end
+end
+{% endcodeblock %}
+
+{% codeblock lib/task/article.rake lang:ruby %}
+namespace :article do
+  task :import => :environment do
+  end
+end
+{% endcodeblock %}
+
+{% codeblock db/seed.rb lang:ruby %}
+['sample:import', 'article:import'].each do |task|
+  Rake::Task[task].execute
+end
+{% endcodeblock %}
+
+これで別のrakeタスクに分割してまとめて実行できる。
