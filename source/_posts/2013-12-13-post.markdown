@@ -1,0 +1,9 @@
+---
+layout: post
+title: "ぼくがTwitterをやめた理由"
+date: 2013-12-13 10:27
+comments: true
+categories:
+---
+
+コード書く時間がなくなるから。
