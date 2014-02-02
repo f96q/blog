@@ -1,0 +1,17 @@
+---
+layout: post
+title: "kptboardをリリースしました"
+date: 2014-02-03 01:19
+comments: true
+categories:
+---
+
+去年、[世界を変える合宿](http://sekaiokaeru.tumblr.com)で作り始めて、プログラマーズカフェ忘年会で発表したふりかえりサービスを、その後も開発を続けて今日リリースしました。
+
+まだまだ追加したい機能や、修正したい点はあるので開発は続けて行きます。
+
+pull requestなどありましたらお気軽にどうぞ。
+
+* heroku　[http://kptboard.herokuapp.com](http://kptboard.herokuapp.com)
+* github [https://github.com/f96q/kptboard](https://github.com/f96q/kptboard)
+* ライセンス [https://github.com/f96q/kptboard/blob/master/MIT-LICENSE.txt](https://github.com/f96q/kptboard/blob/master/MIT-LICENSE.txt)
