@@ -1,0 +1,16 @@
+---
+layout: post
+title: "伝え方"
+date: 2014-02-19 23:25
+comments: true
+categories:
+---
+
+<blockquote class="twitter-tweet" lang="ja"><p>LInusがFワードをガンガン使うのは，優しく言っても伝わらなくてどんどんダメになる事例をたくさん見てきておりちゃんと伝えることが必要，という言い分があるらしい <a href="https://twitter.com/search?q=%23devsumiE&amp;src=hash">#devsumiE</a></p>&mdash; Mr. Fiber (@repeatedly) <a href="https://twitter.com/repeatedly/statuses/433776800397660160">2014, 2月 13</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+自分も学生時代に優しく言っても伝わらなくてどんどんダメになる事例をたくさん見てきてるので、社会人になってからは自分の思ってることを極力、直接的に伝えるようにしてる。
+
+まあ、Fワード使ったことはないけど。
+
+でも結局のところ伝え方って、相手によってどう受け取るかが違うので、それを考慮した上で発言しないと関係性が悪くなったりするので難しいですね。
