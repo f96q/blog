@@ -36,6 +36,7 @@ THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 - Add your site to the Wiki so we can watch the community grow.
 
 #### setup
+yum install python-devel
 rake setup_github_pages
 git@github.com:f96q/f96q.github.com.git
 
