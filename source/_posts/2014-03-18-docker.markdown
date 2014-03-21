@@ -1,0 +1,57 @@
+---
+layout: post
+title: "Docker使い始めて分かったこと"
+date: 2014-03-18 13:26
+comments: true
+categories:
+---
+
+最近ローカルの開発環境にDockerを使うようになって、概ね使えてます。
+
+## 使うホストOS
+
+{% blockquote Installation https://www.docker.io/gettingstarted %}
+Our recommended installation path is for Ubuntu linux
+{% endblockquote %}
+
+ubuntu推奨と書いてあるので、ubuntu使うのがいいと思います。
+
+## コンテナで動かしてるOSの/etc/init.dが動かない
+
+supervisorを使う。
+
+{% codeblock lang:sh %}
+[supervisord]
+nodaemon=true
+
+[program:sshd]
+command=/usr/sbin/sshd -D
+
+[program:mysqld]
+command=/usr/bin/mysqld_safe
+{% endcodeblock %}
+
+{% codeblock lang:sh %}
+/usr/bin/supervisord
+{% endcodeblock %}
+
+## docker kill [container id] しても止まらない時に止める方法
+
+{% codeblock lang:sh %}
+service docker stop
+{% endcodeblock %}
+
+/var/lib/docker/containers/[container id]/config.json
+の"Running"という名前のキーをfalseに変更する。
+
+{% codeblock lang:sh %}
+service docker start
+{% endcodeblock %}
+
+### 参考
+
+[https://github.com/dotcloud/docker/issues/3231](https://github.com/dotcloud/docker/issues/3231)
+
+## Dockerfileで一般ユーザーで作成したファイルが権限があってるのにoperation not permittedになる時がある
+
+不明、不具合な気がする。
