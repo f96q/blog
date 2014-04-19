@@ -1,0 +1,54 @@
+---
+layout: post
+title: "railsのviewでのxssの話"
+date: 2014-04-16 18:20
+comments: true
+categories:
+---
+
+# どんなケース
+
+タグを条件で結合して出力するケース。
+
+# xssが起きるケース
+
+{% codeblock lang:ruby %}
+module ApplicationHelper
+  def test(word = "<script>alert('xss')</script>")
+    html = ''
+    html += content_tag :div, 'test' if true
+    html += word if true
+    Rails.logger.info html.class # => String
+    Rails.logger.info html.inspect # => "<div>test</div><script>alert('xss')</script>"
+    html.html_safe
+  end
+end
+{% endcodeblock %}
+
+# xssが起きないケース
+
+{% codeblock lang:ruby %}
+module ApplicationHelper
+  def test(word = "<script>alert('xss')</script>")
+    html = ''
+    html = content_tag :div, 'test' if true
+    html += word if true
+    Rails.logger.info html.class # => ActiveSupport::SafeBuffer
+    Rails.logger.info html.inspect # => "<div>test</div>&lt;script&gt;alert(&#39;xss&#39;)&lt;/script&gt;"
+    html.html_safe
+  end
+end
+{% endcodeblock %}
+
+# そもそもどうしたらいいのか
+
+今回のものに関しては、Stringで結合しなければ直ります。
+
+このへんのことって、いくら気を付けてても、起こる時は起こるので、erbのviewにしてしまって、そもそも自分でhtml_safeするコードを極力書かないようにする方が、安全なんじゃないかと思いました。
+
+{% codeblock %}
+<% if true %>
+  <div>test</div>
+  <%= word if true %>
+<% end %>
+{% endcodeblock %}
