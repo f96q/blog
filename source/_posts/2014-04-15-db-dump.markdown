@@ -1,0 +1,21 @@
+---
+layout: post
+title: "dbのダンプ方法"
+date: 2014-04-15 15:32
+comments: true
+categories:
+---
+
+# mysql
+
+## インポート
+
+{% codeblock lang:sh %}
+mysqldump -h localhost -u root -p db_name > dump.sql
+{% endcodeblock %}
+
+## エクスポート
+
+{% codeblock lang:sh %}
+mysql -h localhost -u root -p db_name < dump.sql
+{% endcodeblock %}
