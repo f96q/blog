@@ -52,6 +52,26 @@ service docker start
 
 [https://github.com/dotcloud/docker/issues/3231](https://github.com/dotcloud/docker/issues/3231)
 
+## コンテナでNo space left on deviceになる
+
+{% codeblock lang:sh %}
+docker rm `docker ps -a -q`
+{% endcodeblock %}
+
+## コンテナのインポート, エクスポート
+
+### インポート
+
+{% codeblock lang:sh %}
+docker export container_id > container.tar
+{% endcodeblock %}
+
+### エクスポート
+
+{% codeblock lang:sh %}
+cat container.tar | docker import - image_name
+{% endcodeblock %}
+
 ## Dockerfileで一般ユーザーで作成したファイルが権限があってるのにoperation not permittedになる時がある
 
 不明、不具合な気がする。
