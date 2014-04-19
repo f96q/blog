@@ -1,0 +1,51 @@
+---
+layout: post
+title: "PostgreSQLについて"
+date: 2014-04-14 08:39
+comments: true
+categories:
+---
+
+PostgreSQLを今まで使ったことがなくて、使う機会があったので覚え書き。
+
+## インストール
+
+{% codeblock lang:sh %}
+sudo yum install postgresql-server postgresql-devel
+{% endcodeblock %}
+
+## db初期化
+
+{% codeblock lang:sh %}
+sudo /etc/init.d/postgresql initdb
+{% endcodeblock %}
+
+## ローカルで接続できるようにする
+
+/var/lib/pgsql/data/pg_hba.conf
+
+{% codeblock lang:sh %}
+local   all         all                          ident
+{% endcodeblock %}
+
+{% codeblock lang:sh %}
+local   all         all                          trust
+{% endcodeblock %}
+
+## 起動
+
+{% codeblock lang:sh %}
+sudo /etc/init.d/postgresql start
+{% endcodeblock %}
+
+## コマンドライン
+
+{% codeblock lang:sh %}
+psql
+{% endcodeblock %}
+
+## コマンドラインで終了
+
+{% codeblock lang:sh %}
+/q
+{% endcodeblock %}
