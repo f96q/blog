@@ -1,0 +1,19 @@
+---
+layout: post
+title: "最近使ってみて便利だった、ChefのCookbook"
+date: 2014-04-22 05:07
+comments: true
+categories:
+---
+
+# database
+
+[database](http://community.opscode.com/cookbooks/database)
+
+特定の権限のユーザー作ったり、dbを作ったりできる。
+
+# logrotate
+
+[logrotate](http://community.opscode.com/cookbooks/logrotate)
+
+ログローテートの設定をできる。
