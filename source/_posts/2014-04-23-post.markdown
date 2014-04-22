@@ -1,0 +1,9 @@
+---
+layout: post
+title: "仕事"
+date: 2014-04-23 07:52
+comments: true
+categories:
+---
+
+対価を貰ってやってる以上、他の同業者が見たら笑われないものを作っていきたい。
