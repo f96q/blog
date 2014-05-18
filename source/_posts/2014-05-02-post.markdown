@@ -1,0 +1,21 @@
+---
+layout: post
+title: "Macセットアップする時の設定"
+date: 2014-05-02 03:34
+comments: true
+categories:
+---
+
+# KeyRemap4MacBook
+
+Key Repeat
+
+Delay Until Repeatを150ms
+Key Repeatを15ms
+
+# iTerm2
+
+PreferencesのKeys
+
+Letf option key acs asを +Esc
+Right option key acs asを +Esc
