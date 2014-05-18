@@ -1,0 +1,15 @@
+---
+layout: post
+title: "ActiveRecordのFat Model対策"
+date: 2014-05-03 03:45
+comments: true
+categories:
+---
+
+一時期、DCIが流行ったり、よくあるやり方だとrubyだとmoduleに切り出すとかあって、moduleに切り出してもソースコードの可読性はあまり良くならないと思ってて、この方法が良さそうだと思う。
+
+[7 Patterns to Refactor Fat ActiveRecord Models](http://blog.codeclimate.com/blog/2012/10/17/7-ways-to-decompose-fat-activerecord-models)
+
+ここの日本語の説明が分かりやすかった。
+
+[ActiveRecord のモデルを整理する7つのパターン](http://tkawachi.github.io/blog/2013/09/21/active-model-7-pattern)
