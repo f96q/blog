@@ -37,7 +37,7 @@ THE SOFTWARE IS PROVIDED ‘AS IS’, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
 
 #### setup
 yum install python-devel
-rake setup_github_pages
+bundle exec rake setup_github_pages
 git@github.com:f96q/f96q.github.com.git
 
-rake new_post\['test'\]
+bundle exec rake new_post\['test'\]
