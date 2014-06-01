@@ -23,6 +23,7 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 + [https://github.com/cloudinary/cloudinary_gem/pull/55](https://github.com/cloudinary/cloudinary_gem/pull/55)
 
 ## Activities
++ Speaker: 2014 5月プログラマーズカフェ [開発環境でDocker使ってみた](http://f96q.github.io/blog/2014/05/31/pgcafe)
 + Speaker: 2013 プログラマーズカフェ 忘年会 [2013年を振り返って](https://speakerdeck.com/f96q/2013nian-wozhen-rifan-tute)
 + Speaker: Git勉強会@KRAY [Git勉強会@KRAY](https://speakerdeck.com/f96q/gitmian-qiang-hui-at-kray)
 + [RegionalRubyKaigi レポート東京 Ruby 会議 10](http://jp.rubyist.net/magazine/?0041-TokyoRubyKaigi10Report_1st)
