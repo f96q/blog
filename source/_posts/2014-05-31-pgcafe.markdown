@@ -1,0 +1,13 @@
+---
+layout: post
+title: "5月のプログラマーズカフェでLTしてきました"
+date: 2014-05-31 20:59
+comments: true
+categories:
+---
+
+<script async class="speakerdeck-embed" data-id="5a8de820cb8f0131162202b4824706e4" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+[5月のプログラマーズカフェ](http://atnd.org/events/50464)
+
+DockerについてLTしてきました。
