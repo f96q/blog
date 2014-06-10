@@ -63,13 +63,13 @@ docker rm `docker ps -a -q`
 ### インポート
 
 {% codeblock lang:sh %}
-docker export container_id > container.tar
+zcat container.tar.gz | docker import - image_name
 {% endcodeblock %}
 
 ### エクスポート
 
 {% codeblock lang:sh %}
-cat container.tar | docker import - image_name
+docker export container_id | gzip > container.tar.gz
 {% endcodeblock %}
 
 ## Dockerfileで一般ユーザーで作成したファイルが権限があってるのにoperation not permittedになる時がある
