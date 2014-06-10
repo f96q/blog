@@ -16,9 +16,6 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 ## Products
 + [KPTBoard](http://kptboard.herokuapp.com/)
 
-## Groups
-+ [世界を変える合宿](http://sekaiokaeru.tumblr.com)
-
 ## Contributes
 + [https://github.com/cloudinary/cloudinary_gem/pull/55](https://github.com/cloudinary/cloudinary_gem/pull/55)
 
@@ -39,6 +36,7 @@ I'm working at [KRAY Inc.](http://kray.jp) as Software Engineer since April 2010
 + JavaScript
 + CoffeeScript
 + Objective-C
++ Swift
 
 ## Frameworks
 + Ruby on Rails
