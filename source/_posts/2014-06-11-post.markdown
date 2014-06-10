@@ -1,0 +1,19 @@
+---
+layout: post
+title: "最近気になってるgem"
+date: 2014-06-11 00:15
+comments: true
+categories:
+---
+
+# geokit-rails
+
+[https://github.com/geokit/geokit-rails](https://github.com/geokit/geokit-rails)
+
+近隣の位置のものとか自前で距離とか計算しなくても検索できるようになる。
+
+# ransack
+
+[https://github.com/activerecord-hackery/ransack](https://github.com/activerecord-hackery/ransack)
+
+よくある、いろんな条件で検索したりするのを作るのに便利そう。
