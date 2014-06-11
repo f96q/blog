@@ -1,0 +1,25 @@
+---
+layout: post
+title: "CoreOSに移行した"
+date: 2014-06-12 01:36
+comments: true
+categories:
+---
+
+最近はDockerを使う時に使うベースのOSをubuntuからCoreOSに移行した。
+
+# 一般ユーザー
+
+coreというユーザーがデフォルトでいる、sudoが使える。
+
+# dockerの実行
+
+coreという名前のユーザーでsudoなしで実行できる。
+
+# 時間の同期方法
+
+nptdがインストールされてないので
+
+{% codeblock lang:sh %}
+sudo tlsdate
+{% endcodeblock %}
