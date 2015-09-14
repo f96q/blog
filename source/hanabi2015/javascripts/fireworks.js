@@ -33,10 +33,10 @@ var Fireworks = (function () {
       var x = this.canvas.width / 2;
       var y = this.canvas.height / 2;
 
-      for (var i = 0; i <= 1.0; i += 0.002) {
-        var vx = i;
+      for (var i = 0; i <= 700; i++) {
+        var vx = Math.random();
         var vy1 = Math.pow(vx, 2 / 3) - Math.sqrt(1 - vx * vx);
-        var vy2 = Math.pow(vx, 2 / 3) + Math.sqrt(1 - vx * vx);
+        var vy2 = Math.pow(vx, 2 / 3) + Math.sqrt(1 - vx * vx) - 0.4;
         var speed = Math.random() * 6;
 
         vx *= speed;
@@ -50,56 +50,54 @@ var Fireworks = (function () {
       }
     }
   }, {
+    key: 'update',
+    value: function update() {
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = this.sparks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var spark = _step.value;
+
+          spark.x += spark.vx;
+          spark.y += spark.vy + this.settings.gravity;
+          spark.vx *= this.settings.damping;
+          spark.vy *= this.settings.damping;
+          this.draw(spark);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator['return']) {
+            _iterator['return']();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
+
+      this.context.globalCompositeOperation = 'source-over';
+      this.context.fillStyle = 'rgba(0, 0, 0, 0.3)';
+      this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);
+      this.sparkSize *= 0.97;
+      if (this.sparkSize < 0.03) {
+        this.fire();
+        return;
+      }
+      requestAnimationFrame(this.update.bind(this));
+    }
+  }, {
     key: 'fire',
     value: function fire() {
-      var _this = this;
-
       this.sparkSize = this.settings.sparkSize;
       this.sparks = [];
       this.initSparks();
-
-      var update = function update() {
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-          for (var _iterator = _this.sparks[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var spark = _step.value;
-
-            spark.x += spark.vx;
-            spark.y += spark.vy + _this.settings.gravity;
-            spark.vx *= _this.settings.damping;
-            spark.vy *= _this.settings.damping;
-            _this.draw(spark);
-          }
-        } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion && _iterator['return']) {
-              _iterator['return']();
-            }
-          } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
-            }
-          }
-        }
-
-        _this.context.globalCompositeOperation = 'source-over';
-        _this.context.fillStyle = 'rgba(0, 0, 0, 0.3)';
-        _this.context.fillRect(0, 0, _this.canvas.width, _this.canvas.height);
-        _this.sparkSize *= 0.97;
-        if (_this.sparkSize < 0.03) {
-          _this.fire();
-          return;
-        }
-        requestAnimationFrame(update);
-      };
-
-      requestAnimationFrame(update);
+      requestAnimationFrame(this.update.bind(this));
     }
   }, {
     key: 'draw',
